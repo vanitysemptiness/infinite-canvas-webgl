@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infinite Canvas</title>
+    <style>
+        canvas {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div id="wasm-example"></div>
+    <script type="module">
+        import init from './pkg/infinite_canvas.js';
+        init().then(() => {
+            console.log("WASM Loaded");
+        });
+    </script>
+</body>
+</html>
