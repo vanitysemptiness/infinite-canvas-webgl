@@ -1,22 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infinite Canvas</title>
+    <title>Rust WebGL Example</title>
+</head>
+
+<body>
     <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
         canvas {
-            background-color: #f0f0f0;
+            display: block;
+            width: 100vw;
+            height: 100vh;
         }
     </style>
-</head>
-<body>
-    <div id="wasm-example"></div>
+    <canvas id="canvas"></canvas>
     <script type="module">
-        import init from './pkg/infinite_canvas.js';
-        init().then(() => {
-            console.log("WASM Loaded");
-        });
+        import init from "./pkg/webgl_grid.js";
+        init();
     </script>
 </body>
+
 </html>
