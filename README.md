@@ -14,6 +14,11 @@ This guide will walk you through setting up, building, and running the Infinite 
 ## Project Setup
 ---
 
+tldr: cd into project base (install http-server)
+```bash
+wasm-pack build --target web
+python3 -m http.server 8080
+```
 
 ## Building and Running (Native)
 
