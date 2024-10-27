@@ -114,3 +114,5 @@ Thumbs.db
 
 # rust wasm32 dependencies
 rust-std-nightly-wasm32-unknown-unknown.tar.gz
+
+/node_modules
