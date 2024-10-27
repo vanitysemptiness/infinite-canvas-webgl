@@ -1,31 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rust WebGL Example</title>
-</head>
-
-<body>
+    <title>WebGL Grid</title>
     <style>
-        body,
-        html {
+        body { 
             margin: 0;
-            padding: 0;
             overflow: hidden;
-        }
-        canvas {
-            display: block;
             width: 100vw;
             height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f0f0f0;
+        }
+        canvas {
+            border: 1px solid black;
+            width: 100vw !important;
+            height: 100vh !important;
+            display: block;
+            object-fit: contain;
         }
     </style>
-    <canvas id="canvas"></canvas>
-    <script type="module">
-        import init from "./pkg/webgl_grid.js";
-        init();
+    <!-- Add version query parameter to force reload -->
+    <script>
+        const version = Date.now();
+        const loadWasm = async () => {
+            const importObj = await import(`./pkg/webgl_grid.js?v=${version}`);
+            await importObj.default(`./pkg/webgl_grid_bg.wasm?v=${version}`);
+            importObj.start();
+        };
+        loadWasm().catch(console.error);
     </script>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
 </body>
-
 </html>
